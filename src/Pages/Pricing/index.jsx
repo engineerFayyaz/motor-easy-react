@@ -597,11 +597,11 @@ function Pricing() {
                             </div>
                         </div>
                     </div>
-                    <ComapniesAttached/>
-                    <BlogSections/>
+                    <ComapniesAttached />
+                    <BlogSections />
                 </section>
             </main>
-            <Footer/>
+            <Footer />
 
         </>
     );
