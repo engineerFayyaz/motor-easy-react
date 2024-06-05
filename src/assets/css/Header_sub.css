@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* ************ Top Header ************* */
+.top_header h6 {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.top_header {
+    background-color: #2bace7;
+    color: white;
+}
+
+header .navbar-collapse {
+    flex-grow: 0;
+}
+
+.header {
+    background-color: white !important;
+}
+
+
+
+.container-fluid .motor_easy_width {
+    /* font-size: 25px; */
+    font-weight: 700;
+    color: #62869f;
+}
+
+/* ****************** header **************** */
+/* @media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item:hover .nav-link {}
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+} */
+
+.collapse .navbar-nav li {
+    padding: 0px 0px 0px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #62869f;
+}
+
+.collapse .navbar-nav li a:hover {
+    color: #2bace7;
+    /* background-color: grey; */
+}
+
+.collapse .navbar-nav button {
+    padding: 12px;
+    border-radius: 7px;
+    border: none;
+    background-color: #2bace7;
+    color: white;
+}
+
+
+.collapse .navbar-nav button:hover {
+    background-color: #62869f;
+    color: white;
+    transition: 1s;
+}
+
+.nav-item .dropdown-menu li {
+    padding: 2px;
+    /* background-color: black; */
+}
+
+
+@media (max-width: 990px){
+    .collapse .navbar-nav li{
+        padding: 0px;
+    }
+    .collapse .navbar-nav button{
+        margin-left: 0rem !important;
+    }
+}
