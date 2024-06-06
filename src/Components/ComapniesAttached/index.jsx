@@ -1,5 +1,30 @@
 import React from "react";
 import "../../Pages/Pricing/Pricing.css";
+import acura from "../../assets/Company Logo/acura-logo.webp"
+import aston from "../../assets/Company Logo/aston-martin-logo.png"
+import audi from "../../assets/Company Logo/audi-logo.png"
+import bmw from "../../assets/Company Logo/bmw-logo.png"
+import bentley from "../../assets/Company Logo/bentley-logo.webp"
+import bugatti from "../../assets/Company Logo/bugatti-logo.webp"
+import buick from "../../assets/Company Logo/buick-logo.webp"
+import cadilac from "../../assets/Company Logo/cadillac-logo.png"
+import chevrolet from "../../assets/Company Logo/chevrolet-logo.webp"
+import chrysler from "../../assets/Company Logo/chrysler-logo.png"
+import corvette from "../../assets/Company Logo/corvette-logo.webp"
+import dodge from "../../assets/Company Logo/dodge-logo.png"
+import romeo from "../../assets/Company Logo/alfa-romeo-logo.webp"
+import ferrari from "../../assets/Company Logo/ferrari-logo.png"
+import ford from "../../assets/Company Logo/ford-logo.png"
+import mustang from "../../assets/Company Logo/ford-mustang-logo.png"
+import gmc from "../../assets/Company Logo/gmc-logo.png"
+import honda from "../../assets/Company Logo/honda-logo.webp"
+import hundai from "../../assets/Company Logo/hyundai-logo.webp"
+import infiniti from "../../assets/Company Logo/infiniti-logo.webp"
+import jaguar from "../../assets/Company Logo/jaguar-logo.png"
+import jeep from "../../assets/Company Logo/jeep-logo.png"
+import kia from "../../assets/Company Logo/kia-logo.webp"
+import lamborghini from "../../assets/Company Logo/lamborghini-logo.webp"
+import lexus from "../../assets/Company Logo/lexus-logo.webp"
 function ComapniesAttached(){
     return(
         <>
@@ -17,7 +42,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/acura-logo.webp"
+            src={acura}
             alt="Title"
           />
           <div className="card-body">
@@ -29,7 +54,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/alfa-romeo-logo.webp"
+            src={romeo}
             alt="Title"
           />
           <div className="card-body">
@@ -41,7 +66,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/aston-martin-logo.png"
+            src={aston}
             alt="Title"
           />
           <div className="card-body">
@@ -53,7 +78,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/audi-logo.png"
+            src={audi}
             alt="Title"
           />
           <div className="card-body">
@@ -65,7 +90,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/bentley-logo.webp"
+            src={bentley}
             alt="Title"
           />
           <div className="card-body">
@@ -77,7 +102,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/bmw-logo.png"
+            src={bmw}
             alt="Title"
           />
           <div className="card-body">
@@ -92,7 +117,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/bugatti-logo.webp"
+            src={bugatti}
             alt="Title"
           />
           <div className="card-body">
@@ -104,7 +129,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/buick-logo.webp"
+            src={buick}
             alt="Title"
           />
           <div className="card-body">
@@ -116,7 +141,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/cadillac-logo.png"
+            src={cadilac}
             alt="Title"
           />
           <div className="card-body">
@@ -128,7 +153,8 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/chevrolet-logo.webp"
+            src={chevrolet}
+
             alt="Title"
           />
           <div className="card-body">
@@ -140,7 +166,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/chrysler-logo.png"
+            src={chrysler}
             alt="Title"
           />
           <div className="card-body">
@@ -152,7 +178,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/corvette-logo.webp"
+            src={corvette}
             alt="Title"
           />
           <div className="card-body">
@@ -167,7 +193,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/dodge-logo.png"
+            src={dodge}
             alt="Title"
           />
           <div className="card-body">
@@ -179,7 +205,8 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/ferrari-logo.png"
+            src={ferrari}
+
             alt="Title"
           />
           <div className="card-body">
@@ -191,7 +218,8 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/ford-logo.png"
+            src={ford}
+
             alt="Title"
           />
           <div className="card-body">
@@ -203,7 +231,8 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/ford-mustang-logo.png"
+            src={mustang}
+
             alt="Title"
           />
           <div className="card-body">
@@ -215,7 +244,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/gmc-logo.png"
+            src={gmc}
             alt="Title"
           />
           <div className="card-body">
@@ -227,7 +256,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/honda-logo.webp"
+            src={honda}
             alt="Title"
           />
           <div className="card-body">
@@ -242,7 +271,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/infiniti-logo.webp"
+            src={infiniti}
             alt="Title"
           />
           <div className="card-body">
@@ -254,7 +283,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/jaguar-logo.png"
+            src={jaguar}
             alt="Title"
           />
           <div className="card-body">
@@ -266,7 +295,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/jeep-logo.png"
+            src={jeep}
             alt="Title"
           />
           <div className="card-body">
@@ -278,7 +307,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/kia-logo.webp"
+            src={kia}
             alt="Title"
           />
           <div className="card-body">
@@ -290,7 +319,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/lamborghini-logo.webp"
+            src={lamborghini}
             alt="Title"
           />
           <div className="card-body">
@@ -302,7 +331,7 @@ function ComapniesAttached(){
         <div className="card text-center mx-auto">
           <img
             className=""
-            src="assets/Company Logo/lexus-logo.webp"
+            src={lexus}
             alt="Title"
           />
           <div className="card-body">

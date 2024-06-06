@@ -8,7 +8,7 @@ const TopHeader = () => {
                     <div className="container">
                         <div className="row d-flex flex-row  justify-content-center align-items-center">
                             <div className="col-lg-3 col-md-6 col-sm-6 company_logo">
-                                <a href="/index.html">
+                                <a href="/">
                                     <h2 style={{ color: "#04BAE0" }}>Motor Easy</h2>
                                 </a>
                             </div>

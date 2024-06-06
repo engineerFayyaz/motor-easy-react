@@ -38,6 +38,7 @@
 .navbar-nav .dropdown .dropdown-menu a {
     color: white;
     margin-left: 10px;
+    text-decoration: none;
 }
 
 .navbar-nav .dropdown .dropdown-menu a:hover {
@@ -60,13 +61,13 @@
 }
 
 .nav-item .dropdown-menu li {
-    padding: 2px;
-    
+    padding: 5px;
+    margin-bottom: 5px;
+    /* border-radius: 4px; */
+    cursor: pointer;
 }
 .nav-item .dropdown-menu li:hover {
-    padding: 2px;
     background-color: #002E5A;
-    border-radius: 4px;
     
 }
 

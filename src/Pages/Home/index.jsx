@@ -93,7 +93,7 @@ function Home() {
                                     </div>
                                 </div>
                                 <div className="col-lg-6 col-md-12 MORE_ABOUT_US">
-                                    <a href="#">MORE ABOUT US &gt;</a>
+                                    <a href="/About-us">MORE ABOUT US &gt;</a>
                                     <p className="mt-4">
                                         We offer car protection warranty against expensive repair cost. Now
                                         you can stop worrying with our 1, 2 or 3 year used car warranty cover.{" "}

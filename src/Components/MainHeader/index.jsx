@@ -25,9 +25,6 @@ const MainHeader = () => {
                                         </a>
                                         <ul className="dropdown-menu">
                                             <li className="dropdown-link">
-                                                {/* <a href="/Look For Services/car_services.html">Car Servicing</a> */}
-                                            </li>
-                                            <li className="dropdown-link">
                                                 <a href="/Used-Car-Warrenty">Used Car warranty</a>
                                             </li>
                                             <li className="dropdown-link">
@@ -67,7 +64,7 @@ const MainHeader = () => {
                                         <a className="nav-link" href="/Pricing">Pricing</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="Blogs.html">Blog</a>
+                                        <a className="nav-link" href="/Blogs">Blog</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="/Contact-us">Contact Us</a>
@@ -78,8 +75,8 @@ const MainHeader = () => {
                                 </ul>
                             </div>
                             <div className="log-sign">
-                                <a href="/Sign_in.html"><button className="btn-transparent">Log in</button></a>
-                                <a href="/Sign_up.html"><button className="btn-solid">Sign up</button></a>
+                                <a href="/Sign_in"><button className="btn-transparent">Log in</button></a>
+                                <a href="/Sign_up"><button className="btn-solid">Sign up</button></a>
                             </div>
                         </div>
                     </nav>

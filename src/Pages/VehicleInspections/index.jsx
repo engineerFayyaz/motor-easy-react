@@ -35,7 +35,7 @@ function VehicleInspections() {
                                 <strong>Get Emergency Support.</strong> Our 24/7 Support
                                 Representatives Will Help You With Your Project
                             </p>
-                            <a href="contact_us.html">
+                            <a href="/contact-us">
                                 <button className="rounded-5 px-3 py-1 fs-5">
                                     Click Here for Support
                                 </button>
@@ -80,7 +80,7 @@ function VehicleInspections() {
                         </div>
                     </div>
                     <div className="d-flex justify-content-center align-items">
-                        <a href="Book_Services.html">
+                        <a href="/Book_Services">
                             <button className="rounded-5 px-4 py-2">Get Started</button>
                         </a>
                     </div>
@@ -241,7 +241,7 @@ function VehicleInspections() {
                         data-aos="zoom-in-up"
                         data-aos-duration={1500}
                     >
-                        <a href="Book_Services.html">
+                        <a href="/Book_Services">
                             <button className="rounded-5 px-4 py-2">Get Started</button>
                         </a>
                     </div>

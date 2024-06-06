@@ -16,6 +16,13 @@ import WindScreenRepair from './Pages/WindScreenRepair';
 import FAQPage from './Pages/FAQPage';
 import Testimonial from './Pages/Testominals';
 import Pricing from './Pages/Pricing';
+import {Blogs} from "./Pages/Blogs"
+import {BlogsDetail} from "./Pages/BlogsDetail"
+import {SignIn} from "./Pages/Auth/SignIn"
+import {SignUp} from "./Pages/Auth/SignUp"
+import { BookServices } from './Pages/BookServices';
+
+
 function App() {
   return (
     <Router>
@@ -32,6 +39,14 @@ function App() {
         <Route path='/Faq-Page' element={<FAQPage/>}/>
         <Route path='/Testominals' element={<Testimonial/>}/>
         <Route path='/Pricing' element={<Pricing/>}/>
+        <Route path='/Blogs' element={<Blogs/>}/>
+        <Route path='/BlogsDetail' element={<BlogsDetail/>}/>
+        <Route path='/Sign_In' element={<SignIn />}/>
+        <Route path='/Sign_Up' element={<SignUp />}/>
+        <Route path='/Book_Services' element={<BookServices />}/>
+
+
+
       </Routes>
     </Router>
   );

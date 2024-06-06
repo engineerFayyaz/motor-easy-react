@@ -104,8 +104,8 @@ function AboutUs() {
                                     </p>
                                 </div>
                                 <div className="mt-4">
-                                    <button className="Read_More">Read More</button>
-                                    <button className="A_quote">Get A quote</button>
+                                    <a href="/About-us"><button className="Read_More">Read More</button></a>
+                                    <a href="/Contact-us"><button className="A_quote">Get A quote</button></a>
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,7 @@ button, .btn{
   margin-bottom: 2rem;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.676);
- background-image: url(/assets/images/other_service_1.jpg);
+ background-image: url(../../assets/images/other_service_1.jpg);
  background-position: bottom;
  background-attachment: fixed;
  background-size: cover;

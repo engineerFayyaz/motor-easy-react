@@ -20,8 +20,8 @@ function MainBanners() {
                         <h6>Motoreasy services</h6>
                         <p>Drive With Peace of Mind Service $ Warranty</p>
                         <div>
-                            <Button variant="primary" className="read_more">Read More</Button>
-                            <Button variant="secondary" className="get_a_quote">Get a quote</Button>
+                            <a href="/About-us"><Button variant="primary" className="read_more">Read More</Button></a>
+                            <a href="/Contact-us"><Button variant="primary" className="get_a_quote">Get a Quote</Button></a>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -35,8 +35,8 @@ function MainBanners() {
                         <h6>Motoreasy services</h6>
                         <p>Everything Car Done <br /> for you</p>
                         <div>
-                            <Button variant="primary" className="read_more">Read More</Button>
-                            <Button variant="secondary" className="get_a_quote">Get a quote</Button>
+                            <a href="/About-us"><Button variant="primary" className="read_more">Read More</Button></a>
+                            <a href="/Contact-us"><Button variant="primary" className="get_a_quote">Get a Quote</Button></a>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -50,8 +50,8 @@ function MainBanners() {
                         <h6>Motoreasy services</h6>
                         <p>Everything Car Done <br /> for you</p>
                         <div>
-                            <Button variant="primary" className="read_more">Read More</Button>
-                            <Button variant="secondary" className="get_a_quote">Get a quote</Button>
+                            <a href="/About-us"><Button variant="primary" className="read_more">Read More</Button></a>
+                            <a href="/Contact-us"><Button variant="primary" className="get_a_quote">Get a Quote</Button></a>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
