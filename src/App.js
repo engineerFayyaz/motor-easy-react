@@ -18,9 +18,12 @@ import Testimonial from './Pages/Testominals';
 import Pricing from './Pages/Pricing';
 import {Blogs} from "./Pages/Blogs"
 import {BlogsDetail} from "./Pages/BlogsDetail"
-import {SignIn} from "./Pages/Auth/SignIn"
 import {SignUp} from "./Pages/Auth/SignUp"
+import {SignIn} from "./Pages/Auth/SignIn"
 import { BookServices } from './Pages/BookServices';
+import AddPost from './Pages/admin/AddPost';
+import UsersData from './Pages/admin/UsersData';
+import { Dashboard } from './Pages/admin/Dashboard';
 
 
 function App() {
@@ -40,10 +43,15 @@ function App() {
         <Route path='/Testominals' element={<Testimonial/>}/>
         <Route path='/Pricing' element={<Pricing/>}/>
         <Route path='/Blogs' element={<Blogs/>}/>
-        <Route path='/BlogsDetail' element={<BlogsDetail/>}/>
+        <Route path='/Blogs/:id' element={<BlogsDetail/>}/>
         <Route path='/Sign_In' element={<SignIn />}/>
         <Route path='/Sign_Up' element={<SignUp />}/>
         <Route path='/Book_Services' element={<BookServices />}/>
+        <Route path='/admin/Dashboard' element={<Dashboard />}/>
+        <Route path='/admin/AddPost' element={<AddPost />}/>
+        <Route path='/admin/ManageUsers' element={<UsersData />}/>
+
+
 
 
 

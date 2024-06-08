@@ -1,7 +1,9 @@
+
 import { BlogsContainer } from "../../Components/BlogsContainer";
 import Footer from "../../Components/Footer";
 import MainHeader from "../../Components/MainHeader";
 import TopHeader from "../../Components/TopHeader";
+
 import "./blogs.css"
 export const Blogs = () => {
   return (

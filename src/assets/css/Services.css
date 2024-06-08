@@ -97,7 +97,9 @@ a:hover {
     margin-left: 10px;
 
 }
-
+.carousel-control-next, .carousel-control-prev{
+    top: 50% !important;
+}
 .carousel-item .carousel-caption .get_a_quote:hover {
     background-color: #04BAE0;
     transition: 1s;

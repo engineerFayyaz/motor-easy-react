@@ -1,37 +1,66 @@
 import { useState } from "react";
 import "./Auth.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const formSubmit = (e) => {
-    const invalidEmail = document.getElementById('email');
-    const invalidPassword = document.getElementById('password');
-
+  const formSubmit = async (e) => {
     e.preventDefault();
-    if (email === "") {
-        invalidEmail.style.display = "block";
-      invalidEmail.innerHTML = "Please enter a valid email *";
 
-    if (password === "") {
-        invalidPassword.style.display = "block";
-        invalidPassword.innerHTML = "Please enter a valid password *";
-    }
-    } 
-    else{
-        navigate("/");
+    try {
+      setLoading(true);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Check if the user is an admin
+      const isAdmin = checkAdminCredentials(email, password);
+
+      if (isAdmin) {
+        toast.success("Welcome back, Admin!");
+        setTimeout(() => {
+          navigate("/admin/Dashboard"); // Redirect to admin dashboard
+        }, 1000);
+      } else {
+        toast.success("Welcome back!");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      }
+    } catch (error) {
+      console.log("Invalid credentials ", error.message);
+      toast.error("Invalid credentials. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
+
+  // Function to check admin credentials
+  const checkAdminCredentials = (email, password) => {
+    // Replace with your admin credentials check
+    const adminEmail = "adminmotoreasy@gmail.com";
+    const adminPassword = "admin123";
+
+    return email === adminEmail && password === adminPassword;
+  };
+
   return (
     <>
       <main>
+        <ToastContainer />
         <div className="signin">
           <div className="signin_logo">
             <a href="/">
-              {/* <img src="/assets/images/" width="100" alt=""> */}
               Motor Easy
             </a>
           </div>
@@ -39,18 +68,36 @@ export const SignIn = () => {
             <form action="#" onSubmit={formSubmit}>
               <h2>Sign In</h2>
               <div className="input-field">
-                <input type="email" required="" value={email} onChange={(e) => setEmail(e.target.value) } />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <label>Enter your Email</label>
               </div>
-                <p id="email" className="text-danger text-start" style={{fontSize:"12px", display:"none"}}></p>
+              <p
+                id="email"
+                className="text-danger text-start"
+                style={{ fontSize: "12px", display: "none" }}
+              ></p>
               <div className="input-field">
-                <input type="password" required="" />
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <label>Enter your Password</label>
               </div>
-                <p id="password" className="text-danger text-start" style={{fontSize:"12px", display:"none"}}></p>
+              <p
+                id="password"
+                className="text-danger text-start"
+                style={{ fontSize: "12px", display: "none" }}
+              ></p>
               <div className="forget">
                 <label htmlFor="remember">
-                  <input type="checkbox" id="remember" value={password} onChange={(e) => setPassword(e.target.value) } />
+                  <input type="checkbox" id="remember" />
                   <p>Remember me</p>
                 </label>
                 <a href="#" className="text-primary">
@@ -58,7 +105,7 @@ export const SignIn = () => {
                 </a>
               </div>
               <button type="submit" className="mt-4">
-                Sign In
+                {loading ? "Signing...." : "Sign In"}
               </button>
               <div className="register">
                 <p>

@@ -27,26 +27,36 @@
     /* background-color: #007bff; */
 }
 
-.navbar-nav .dropdown .dropdown-menu {
-    background-color: #1bb7ff;
-    width: 200px;
-    color: white;
-    font-size: 14px;
-
+.log-sign .user-btn:hover  .dropdown-menu{
+    display: block;
+    margin-top: 0;
 }
 
-.navbar-nav .dropdown .dropdown-menu a {
+.navbar-nav .dropdown .dropdown-menu , .log-sign .dropdown .dropdown-menu {
+    background-color: #1bb7ff;
+    /* width: 200px; */
+    color: white;
+    font-size: 14px;
+}
+
+.navbar-nav .dropdown .dropdown-menu a, .log-sign .dropdown .dropdown-menu a {
     color: white;
     margin-left: 10px;
     text-decoration: none;
 }
+.log-sign .dropdown .dropdown-menu a{
+    margin-left: 0px;
+}
 
-.navbar-nav .dropdown .dropdown-menu a:hover {
+.navbar-nav .dropdown .dropdown-menu a:hover, .log-sign .dropdown .dropdown-menu a:hover {
     color: white;
     margin-left: 20px;
     transition: transform 0.3s ease-in-out, 0.3s ease-in-out;
 
-
+}
+.log-sign .dropdown .dropdown-menu a:hover{
+    margin-left: 0px;
+    color: black;
 }
 
 .navbar-nav {

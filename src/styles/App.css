@@ -533,13 +533,13 @@ a {
 
 .carousel-control-prev,
 .carousel-control-next {
-    background-color: #003a63;
-    color: #007bff;
-    width: 30px;
-    height: 30px;
-    top: 50%;
+    background-color: #003a63 !important;
+    width: 50px !important;
+    height: 50px;
+    top: 50% !important;
     transform: translateY(-50%);
     border-radius: 50%;
+    transition: all 2s ease-in-out;
 }
 
 .carousel-control-prev:hover,
