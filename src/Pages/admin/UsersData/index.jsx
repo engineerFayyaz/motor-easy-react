@@ -11,9 +11,9 @@ import {
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Modal, Button, Form } from "react-bootstrap";
-import MainHeader from "../../../Components/MainHeader";
 import Footer from "../../../Components/Footer";
 import TopHeader from "../../../Components/TopHeader";
+import AdminHeader from "../../../Components/AdminHeader";
 
 const UsersData = () => {
   const [users, setUsers] = useState([]);
@@ -105,7 +105,7 @@ const UsersData = () => {
     <>
       <ToastContainer />
       <TopHeader />
-    <MainHeader />
+    <AdminHeader />
     <main>
     <div className="container mt-5">
         <h2 className="mb-4 text-center">Users Data</h2>

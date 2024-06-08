@@ -1,10 +1,10 @@
+import AdminHeader from "../../../Components/AdminHeader"
 import Footer from "../../../Components/Footer"
-import MainHeader from "../../../Components/MainHeader"
 export const Dashboard = () => {
 
     return (
         <>
-        <MainHeader/>
+       <AdminHeader />
         <main>
         <div className="container my-5">
             <div className="row p-5">

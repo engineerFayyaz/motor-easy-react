@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db, storage } from "../../../firebase";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytesResumable, deleteObject } from "firebase/storage";
 import {
   addDoc,
   collection,
@@ -11,12 +11,14 @@ import {
   doc,
   updateDoc,
   getDocs,
+  getDoc
 } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TopHeader from "../../../Components/TopHeader";
 import MainHeader from "../../../Components/MainHeader";
 import Footer from "../../../Components/Footer";
+import AdminHeader from "../../../Components/AdminHeader";
 
 const AddPost = () => {
   const [posts, setPosts] = useState([]);
@@ -24,6 +26,7 @@ const AddPost = () => {
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [delLoading, setDelLoading] = useState(false);
   const [currentPostId, setCurrentPostId] = useState(null);
 
   useEffect(() => {
@@ -64,12 +67,11 @@ const AddPost = () => {
   };
 
   const handleDelete = async (postId, imageUrl) => {
-    setLoading(true);
+    setDelLoading(true);
     try {
       const postRef = doc(db, 'blogs', postId);
-      
       // Check if the document exists before attempting to delete
-      const postDoc = await getDocs(postRef);
+      const postDoc = await getDoc(postRef);
       if (!postDoc.exists()) {
         throw new Error('Document does not exist');
       }
@@ -79,7 +81,7 @@ const AddPost = () => {
       // Delete image from storage if exists
       if (imageUrl) {
         const imageRef = ref(storage, imageUrl);
-        await deleteDoc(imageRef);
+        await deleteObject(imageRef);
       }
   
       toast.success('Blog post deleted successfully!');
@@ -88,9 +90,10 @@ const AddPost = () => {
       console.error("Error deleting post: ", error);
       toast.error("Failed to delete post. Please try again later.");
     } finally {
-      setLoading(false);
+      setDelLoading(false);
     }
   };
+  
   
 
   const handleSubmit = async (e) => {
@@ -166,7 +169,7 @@ const AddPost = () => {
     <>
       <ToastContainer />
       <TopHeader />
-      <MainHeader />
+      <AdminHeader />
       <main>
       <div className="container mt-5 ">
         <h2 className="mb-4 text-center">Add Blog Post</h2>
@@ -249,7 +252,7 @@ const AddPost = () => {
                           onClick={() => handleDelete(post.id, post.imageUrl)}
                           disabled= {loading}
                         >
-                          {loading ? "Deleting..." : "Delete"}
+                          {delLoading ? "Deleting..." : "Delete"}
                         </button>
                       </td>
                     </tr>

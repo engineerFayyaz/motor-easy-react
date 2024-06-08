@@ -20,7 +20,7 @@ import {Blogs} from "./Pages/Blogs"
 import {BlogsDetail} from "./Pages/BlogsDetail"
 import {SignUp} from "./Pages/Auth/SignUp"
 import {SignIn} from "./Pages/Auth/SignIn"
-import { BookServices } from './Pages/BookServices';
+import {BookServices}  from './Pages/BookServices';
 import AddPost from './Pages/admin/AddPost';
 import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
