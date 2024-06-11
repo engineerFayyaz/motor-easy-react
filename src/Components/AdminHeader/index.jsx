@@ -51,7 +51,7 @@ const AdminHeader = () => {
               >
                 <ul className="navbar-nav text-light mb-2 mb-lg-0">
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <a className="nav-link" href="/admin/Dashboard">
                       Home
                     </a>
                   </li>
