@@ -24,6 +24,7 @@ import {BookServices}  from './Pages/BookServices';
 import AddPost from './Pages/admin/AddPost';
 import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
+import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
 
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
         <Route path='/admin/Dashboard' element={<Dashboard />}/>
         <Route path='/admin/AddPost' element={<AddPost />}/>
         <Route path='/admin/ManageUsers' element={<UsersData />}/>
+        <Route path='/admin/Appointments' element={<AppointmentsData />}/>
+
 
 
 
