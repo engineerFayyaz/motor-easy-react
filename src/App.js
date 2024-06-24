@@ -25,6 +25,7 @@ import AddPost from './Pages/admin/AddPost';
 import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
 import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
+import AdminBanners from './Pages/admin/AdminBanners';
 
 
 function App() {
@@ -52,11 +53,7 @@ function App() {
         <Route path='/admin/AddPost' element={<AddPost />}/>
         <Route path='/admin/ManageUsers' element={<UsersData />}/>
         <Route path='/admin/Appointments' element={<AppointmentsData />}/>
-
-
-
-
-
+        <Route path='/admin/Upload-banners' element={<AdminBanners/>}/>
 
       </Routes>
     </Router>

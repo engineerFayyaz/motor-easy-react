@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 import TopHeader from "../../Components/TopHeader";
 import MainHeader from "../../Components/MainHeader";
 import MainBanners from "../../Components/MainBanners";
@@ -15,6 +18,22 @@ import BlogSections from "../../Components/BlogSections";
 import Footer from "../../Components/Footer";
 
 function Home() {
+    const [bannerUrls, setBannerUrls] = useState([]);
+    useEffect(() => {
+        const fetchBannerUrls = async () => {
+            const listRef = ref(storage, 'Home');
+            try {
+                const res = await listAll(listRef);
+                const urls = await Promise.all(res.items.map((itemRef) => getDownloadURL(itemRef)));
+                setBannerUrls(urls);
+            } catch (error) {
+                console.error("Error fetching images: ", error);
+            }
+        };
+
+        fetchBannerUrls();
+    }, []);
+
     return (
         <>
             <TopHeader />
@@ -22,7 +41,8 @@ function Home() {
             <main>
                 <section>
                     <div className="container-fluid d-flex flex-column">
-                        <MainBanners />
+                    <MainBanners bannerUrls={bannerUrls} />
+
                         <div className="container card-section">
                             <div className="row mt-5 d-flex flex-wrap justify-content-center">
                                 <div className="col-lg-4 d-flex justify-content-center">

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 import TopHeader from "../../Components/TopHeader";
 import MainHeader from "../../Components/MainHeader";
 import "../../Pages/UsedCarWarrenty/Services.css";
@@ -10,12 +13,28 @@ import BlogSections from "../../Components/BlogSections";
 import Footer from "../../Components/Footer";
 
 function VehicleInspections() {
+    const [bannerUrls, setBannerUrls] = useState([]);
+    useEffect(() => {
+        const fetchBannerUrls = async () => {
+            const listRef = ref(storage, 'Vehicle inspection');
+            try {
+                const res = await listAll(listRef);
+                const urls = await Promise.all(res.items.map((itemRef) => getDownloadURL(itemRef)));
+                setBannerUrls(urls);
+            } catch (error) {
+                console.error("Error fetching images: ", error);
+            }
+        };
+
+        fetchBannerUrls();
+    }, []);
+
     return (
         <>
 
             <TopHeader />
             <MainHeader />
-            <MainBanners />
+            <MainBanners bannerUrls={bannerUrls} />
             <div className="emergency-section mt-5 mb-5 ">
                 <div className="container h-100">
                     <div className="row h-100">
