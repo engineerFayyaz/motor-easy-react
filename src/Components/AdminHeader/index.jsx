@@ -75,6 +75,11 @@ const AdminHeader = () => {
                       Blog
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin/Upload-banners">
+                      Upload Banners
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div className="log-sign navbar-nav">

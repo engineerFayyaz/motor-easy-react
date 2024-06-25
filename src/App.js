@@ -16,6 +16,7 @@ import WindScreenRepair from './Pages/WindScreenRepair';
 import FAQPage from './Pages/FAQPage';
 import Testimonial from './Pages/Testominals';
 import Pricing from './Pages/Pricing';
+import {Quotes} from './Pages/Quotes';
 import {Blogs} from "./Pages/Blogs"
 import {BlogsDetail} from "./Pages/BlogsDetail"
 import {SignUp} from "./Pages/Auth/SignUp"
@@ -25,7 +26,7 @@ import AddPost from './Pages/admin/AddPost';
 import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
 import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
-import { Quotes } from './Pages/Quotes';
+import AdminBanners from './Pages/admin/AdminBanners';
 
 
 function App() {
@@ -49,16 +50,12 @@ function App() {
         <Route path='/Sign_In' element={<SignIn />}/>
         <Route path='/Sign_Up' element={<SignUp />}/>
         <Route path='/Book_Services' element={<BookServices />}/>
-        <Route path='/GetQuotes' element={<Quotes/>}/>
+        <Route path='/GetQuotes' element={<Quotes />}/>
         <Route path='/admin/Dashboard' element={<Dashboard />}/>
         <Route path='/admin/AddPost' element={<AddPost />}/>
         <Route path='/admin/ManageUsers' element={<UsersData />}/>
         <Route path='/admin/Appointments' element={<AppointmentsData />}/>
-
-
-
-
-
+        <Route path='/admin/Upload-banners' element={<AdminBanners/>}/>
 
       </Routes>
     </Router>
