@@ -36,7 +36,10 @@ function Home() {
                                                     <p className="card-text">
                                                         Hassle-free Cap Price Servicing, with all work monitored by your own Motor Easy.
                                                     </p>
+                                                    <div className="links d-flex align-items-center justify-content-evenly">
                                                     <a href="#">Read More &gt;&gt;</a>
+                                                    <a href="/getQuotes" className=" text-decoration-none text-lowercase text-primary" >get quote</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -53,7 +56,10 @@ function Home() {
                                                     <p className="card-text">
                                                         Hassle-free Cap Price Servicing, with all work monitored by your own Motor Easy.
                                                     </p>
+                                                    <div className="links d-flex align-items-center justify-content-evenly">
                                                     <a href="#">Read More &gt;&gt;</a>
+                                                    <a href="/getQuotes" className=" text-decoration-none text-lowercase text-primary" >get quote</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,7 +76,10 @@ function Home() {
                                                     <p className="card-text">
                                                         Get your car inspected a problem can creep up when you least expect. Get a quote.
                                                     </p>
+                                                    <div className="links d-flex align-items-center justify-content-evenly">
                                                     <a href="#">Read More &gt;&gt;</a>
+                                                    <a href="/getQuotes" className=" text-decoration-none text-lowercase text-primary" >get quote</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
