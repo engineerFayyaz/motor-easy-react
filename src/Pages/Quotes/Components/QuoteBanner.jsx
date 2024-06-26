@@ -4,7 +4,7 @@ const QuotesBanner = () => {
   return (
     <>
       <div className="row main_body">
-        <div className="col-lg-10 mx-auto motor_easy">
+        <div className="col-lg-9 mx-auto motor_easy">
           <h1>We MotorEasy</h1>
           <h3>The Easy way to manage , protect and maintain your car</h3>
           <div className="select">
