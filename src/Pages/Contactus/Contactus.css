@@ -18,9 +18,7 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.contact4 .form-control:focus {
-  border-color: #ffffff;
-}
+
 
 .contact4 input::-webkit-input-placeholder,
 .contact4 textarea::-webkit-input-placeholder {
@@ -71,4 +69,6 @@
 			bottom: -95px;
 	}
 }
+
+
 
