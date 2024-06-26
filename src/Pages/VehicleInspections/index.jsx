@@ -131,7 +131,7 @@ function VehicleInspections() {
                             </p>
                         </div>
                         <div
-                            className="col-lg-6 overflow-hidden"
+                            className="col-lg-6 overflow-hidden d-flex justify-content-center"
                             data-aos="flip-right"
                             data-aos-duration={1500}
                         >

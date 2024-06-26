@@ -133,7 +133,7 @@ function UsedCarWarrenty() {
                             data-aos="fade-up-left"
                             data-aos-duration={1500}
                         >
-                            <img src={choose} alt="Image!" height="400px" />
+                            <img className="d-flex mx-auto" src={choose} alt="Image!" height="400px" />
                         </div>
                     </div>
                 </div>

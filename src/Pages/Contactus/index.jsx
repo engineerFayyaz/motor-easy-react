@@ -9,8 +9,8 @@ function ContactUs() {
         <>
             <TopHeader />
             <MainHeader />
-            <div className="bg-info contact4 overflow-hiddedn position-relative">
-                <div className="row no-gutters">
+            <div className="bg-info container contact4 overflow-hiddedn position-relative">
+                <div className="row no-gutters mt-5 mb-5">
                     <div className="container">
                         <div className="col-lg-6 contact-box mb-4 mb-md-0">
                             <div className="">
