@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { StepProvider, StepContext } from "../quotes/StepContext"; // import the StepProvider and StepContext
+import { StepContext,StepProvider } from "../../Context/StepContext";
 import MainHeader from "../../Components/MainHeader";
 import QuoteBanner from "./Components/QuoteBanner";
 import TopHeader from "../../Components/TopHeader";

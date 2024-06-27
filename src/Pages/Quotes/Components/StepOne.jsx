@@ -4,7 +4,7 @@ import { addVehicleDetails } from '../../../firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import img from "../../../assets/images/side_image.png";
 import img2 from "../../../assets/images/uk.png";
-import { StepContext } from '../StepContext';
+import { StepContext } from '../../../Context/StepContext';
 const StepOne = () => {
   const [loading, setLoadinng] = useState(false);
   const { selectedModal, setActiveStep } = useContext(StepContext);
