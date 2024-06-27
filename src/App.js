@@ -17,7 +17,7 @@ import WindScreenRepair from './Pages/WindScreenRepair';
 import FAQPage from './Pages/FAQPage';
 import Testimonial from './Pages/Testominals';
 import Pricing from './Pages/Pricing';
-import Quotes from "./Pages/quotes";
+import Quotes from './Pages/Quotes'
 import {Blogs} from "./Pages/Blogs"
 import {BlogsDetail} from "./Pages/BlogsDetail"
 import {SignUp} from "./Pages/Auth/SignUp"
