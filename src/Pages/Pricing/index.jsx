@@ -1,7 +1,7 @@
 import React from "react";
 import TopHeader from "../../Components/TopHeader";
 import MainHeader from "../../Components/MainHeader";
-import "../../Pages/Pricing/Pricing.css";
+import "./Pricing.css";
 import ComapniesAttached from "../../Components/ComapniesAttached";
 import BlogSections from "../../Components/BlogSections";
 import Footer from "../../Components/Footer";

@@ -49,7 +49,7 @@ const BrandsPartners = () => {
 
   return (
     <div className="container">
-      <div className="position-relative">
+      <div className="position-relative mt-5">
         <Carousel fade indicators={false} activeIndex={index} interval={null}>
           {renderBrandItems()}
         </Carousel>

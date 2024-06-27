@@ -38,6 +38,14 @@ export const addPersonalDetails = async (data) => {
     throw new Error('Error adding document');
   }
 };
+export const addSelectedPlan = async (plan) => {
+  try {
+    const docRef = await addDoc(collection(db, 'SelectedPlans'), plan);
+    console.log('Document written with ID: ', docRef.id);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+};
 export const addModelDetails = async (model) => {
   try {
     const docRef = await addDoc(collection(db, 'selectedModel'), {

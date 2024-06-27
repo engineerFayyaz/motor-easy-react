@@ -128,7 +128,7 @@ function VehicleService() {
                             </p>
                         </div>
                         <div
-                            className="col-lg-6"
+                            className="col-lg-6 d-flex justify-content-center"
                             data-aos="fade-up-left"
                             data-aos-duration={1500}
                         >

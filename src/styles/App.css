@@ -98,7 +98,10 @@ a {
     border: none !important;
 
 }
-
+.card-section .card{
+    height: 350px;
+    margin-bottom: 1rem;
+}
 .card_main_position {
     position: relative;
     bottom: 20rem;
@@ -529,6 +532,7 @@ a {
     width: 136px;
     margin-left: 36px;
     background: none;
+    height: 138px;
 }
 
 .carousel-control-prev,
@@ -606,7 +610,7 @@ a {
 .blog_section .card .card-body h3 {
     font-size: 16px;
     width: 95%;
-    margin: -38px 8px auto;
+    margin: -10px 8px auto;
     color: #002e5a;
 }
 

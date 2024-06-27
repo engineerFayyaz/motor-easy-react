@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from "react";
-import { StepContext } from "../StepContext";
-
+import React, { useEffect, useContext, useState } from "react";
+import { StepContext } from "../../../Context/StepContext";
+import { addSelectedPlan } from "../../../firebase";
+import { ToastContainer, toast } from "react-toastify";
 const StepThree = () => {
   const { setActiveStep, formDataStepTwo } = useContext(StepContext);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     document.querySelectorAll(".plan-btn").forEach((btn) => {
       btn.addEventListener("click", function () {
@@ -15,6 +16,22 @@ const StepThree = () => {
       });
     });
   }, []);
+
+  const handleContinue = async (planDetails) => {
+
+    try {
+      setLoading(true);
+      await addSelectedPlan(planDetails);
+      toast.success("Plan save successfully");
+    setActiveStep((prev) => prev + 1); 
+    } catch (error) {
+      console.error("failed to save plan", error);
+      toast.success("failed to save plan");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <div className="content3-section ">
@@ -129,8 +146,10 @@ const StepThree = () => {
                 <a href="#">MotorEasy account</a> and we’ll do the rest.
               </p>
               <div className="three-buttons ">
-                <button className="btn btn-proceed mt-3">
-                  Proceed to customise
+                <button className="btn btn-proceed mt-3"
+                onClick={() => handleContinue({ plan: 'Plan A', price: '£36.44', originalPrice: '£40.94' })}
+                >
+                  {loading ? "Processing..." : "Proceed to customise"}
                 </button>
                 <div className="buttons-section d-flex justify-content-end align-items-center">
                   <button className="btn btn-summery mt-3">
@@ -185,8 +204,10 @@ const StepThree = () => {
                 your cover.
               </p>
               <div className="three-buttons ">
-                <button className="btn btn-proceed mt-3">
-                  Proceed to customise
+              <button className="btn btn-proceed mt-3"
+                onClick={() => handleContinue({ plan: 'Plan A Lite', price: '£21.44', originalPrice: '£24.94' })}
+                >
+                 {loading ? "processing..." : " Proceed to customise"}
                 </button>
                 <div className="buttons-section d-flex justify-content-end align-items-center">
                   <button className="btn btn-summery mt-3">
@@ -225,8 +246,10 @@ const StepThree = () => {
                 subsequent repairs.
               </p>
               <div className="three-buttons ">
-                <button className="btn btn-proceed mt-3">
-                  Proceed to customise
+                <button className="btn btn-proceed mt-3"
+                onClick={() => handleContinue({ plan: 'Plan C', price: '£32.44', originalPrice: '£36.20' })}
+                >
+                 {loading ? "processing..." : " Proceed to customise"}
                 </button>
                 <div className="buttons-section d-flex justify-content-end align-items-center">
                   <button className="btn btn-summery mt-3">
@@ -262,8 +285,10 @@ const StepThree = () => {
                 repairs via your <a href="#">MotorEasy account</a>.
               </p>
               <div className="three-buttons ">
-                <button className="btn btn-proceed mt-3">
-                  Proceed to customise
+              <button className="btn btn-proceed mt-3"
+                onClick={() => handleContinue({ plan: 'Plan C Lite', price: 'AUS$19.44', originalPrice: 'AUS$22.94' })}
+                >
+                 {loading ? "processing..." : " Proceed to customise"}
                 </button>
                 <div className="buttons-section d-flex justify-content-end align-items-center">
                   <button className="btn btn-summery mt-3">

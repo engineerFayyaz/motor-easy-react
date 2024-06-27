@@ -30,19 +30,29 @@ const BlogSections = () => {
                 <div className="card-body">
                     <button>{blog.date}</button>
                     <h3 className="card-title">{blog.title}</h3>
-                    {/* <p className="card-text">{blog.text}</p> */}
                     <div className="links d-flex justify-content-between px-2">
-                    <Link className="ms-2" to={`/blogs/${blog.id}`}> Read More </Link>
-                    <Link to={"/getQuotes"} className='text-end' >get Quote</Link>
+                        <Link className="ms-2" style={{ backgroundColor: "#1bb7ff", padding: "10px", color: "white", textDecoration: "none" }} to={`/blogs/${blog.id}`}> Read More </Link>
+                        <Link to={"/getQuotes"} style={{ backgroundColor: "#1bb7ff", padding: "10px", color: "white", textDecoration: "none" }} className='text-end' >get Quote</Link>
                     </div>
                 </div>
             </div>
         </div>
     );
 
+    // Function to chunk the blogsData array into groups of 3
+    const chunkArray = (array, size) => {
+        const chunkedArr = [];
+        for (let i = 0; i < array.length; i += size) {
+            chunkedArr.push(array.slice(i, i + size));
+        }
+        return chunkedArr;
+    };
+
     if (!blogsData) {
         return <div>Loading...</div>;
     }
+
+    const chunkedBlogs = chunkArray(blogsData, 3);
 
     return (
         <div className="container">
@@ -57,21 +67,13 @@ const BlogSections = () => {
             <div className="row">
                 <div id="carouselExampleControlsNoTouchingLarges" className="carousel slide d-none d-lg-block" data-bs-ride="carousel">
                     <Carousel controls={true} indicators={false} interval={null}>
-                        <Carousel.Item>
-                            <div className="row blog_section d-flex justify-content-center g-0 d-flex m-0">
-                                {blogsData.slice(0, 3).map(renderCard)}
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="row blog_section d-flex justify-content-center g-0 d-flex m-0">
-                                {blogsData.slice(3, 6).map(renderCard)}
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="row blog_section d-flex justify-content-center g-0 d-flex m-0">
-                                {blogsData.slice(6, 9).map(renderCard)}
-                            </div>
-                        </Carousel.Item>
+                        {chunkedBlogs.map((chunk, index) => (
+                            <Carousel.Item key={index}>
+                                <div className="row blog_section d-flex justify-content-center g-0 d-flex m-0">
+                                    {chunk.map(renderCard)}
+                                </div>
+                            </Carousel.Item>
+                        ))}
                     </Carousel>
                 </div>
 

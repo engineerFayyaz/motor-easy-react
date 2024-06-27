@@ -71,13 +71,23 @@ const AdminHeader = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/Blogs">
+                    <a className="nav-link" href="/admin/AddPost">
                       Blog
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="/admin/Upload-banners">
                       Upload Banners
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin/Message-Request">
+                      Contact Request
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin/Add-Pricings">
+                      Add Pricings 
                     </a>
                   </li>
                 </ul>

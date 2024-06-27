@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import img1 from "../../../assets/images/secssion_2.png";
 import img2 from "../../../assets/images/uk.png";
-import { StepContext } from "../StepContext";
+import { StepContext } from "../../../Context/StepContext";
 import { addPersonalDetails } from "../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 const StepTwo = () => {

@@ -1095,7 +1095,7 @@ footer {
     margin-top: 1rem;
 }
 
-.btn-proceed {
+.three-buttons .btn-proceed {
     background: #1bb7ff;
     padding: 10px;
     font-weight: 600;
@@ -1109,14 +1109,14 @@ footer {
     color: white;
 }
 
-.btn-summery {
+.three-buttons  .btn-summery {
     background: rgb(207, 207, 207);
     padding: 10px;
     font-weight: 600;
     color: white;
 }
 
-.buttons-section {
+.three-buttons  .buttons-section {
     margin-top: -50px;
 }
 

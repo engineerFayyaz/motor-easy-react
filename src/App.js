@@ -3,7 +3,8 @@ import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Contactus from "./Pages/Contactus"
@@ -16,7 +17,7 @@ import WindScreenRepair from './Pages/WindScreenRepair';
 import FAQPage from './Pages/FAQPage';
 import Testimonial from './Pages/Testominals';
 import Pricing from './Pages/Pricing';
-import Quotes from './Pages/Quotes';
+import Quotes from './Pages/Quotes'
 import {Blogs} from "./Pages/Blogs"
 import {BlogsDetail} from "./Pages/BlogsDetail"
 import {SignUp} from "./Pages/Auth/SignUp"
@@ -27,11 +28,15 @@ import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
 import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
 import AdminBanners from './Pages/admin/AdminBanners';
+import ContactsTable from './Pages/admin/ContactsTable';
+import AdminPricings from './Pages/admin/Pricings';
+
 
 
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About-us" element={<AboutUs />} />
@@ -56,6 +61,8 @@ function App() {
         <Route path='/admin/ManageUsers' element={<UsersData />}/>
         <Route path='/admin/Appointments' element={<AppointmentsData />}/>
         <Route path='/admin/Upload-banners' element={<AdminBanners/>}/>
+        <Route path='/admin/Message-Request' element={<ContactsTable/>}/>
+        <Route path='/admin/Add-Pricings' element={<AdminPricings/>}/>
 
       </Routes>
     </Router>

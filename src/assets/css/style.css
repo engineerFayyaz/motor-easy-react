@@ -90,14 +90,15 @@ a {
     background-color: #04BAE0;
     transition: 1s;
 }
-
+.carousel-item img{
+    height: 100% !important;
+}
 
 /* ************ Section Second ****************** */
 
 
 .card {
     border: none;
-
 }
 
 .card_main_position {
@@ -612,7 +613,7 @@ a {
 .blog_section .card .card-body h3 {
     font-size: 16px;
     width: 95%;
-    margin: -38px 8px auto;
+    margin: -10px 8px auto;
     color: #002e5a;
 }
 
