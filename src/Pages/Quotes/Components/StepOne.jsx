@@ -1,25 +1,34 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from "react";
 // Import the function to add data to Firestore
-import { addVehicleDetails } from '../../../firebase';
-import { ToastContainer, toast } from 'react-toastify';
+import { addVehicleDetails } from "../../../firebase";
+import { ToastContainer, toast } from "react-toastify";
 import img from "../../../assets/images/side_image.png";
 import img2 from "../../../assets/images/uk.png";
-import { StepContext } from '../StepContext';
-const StepOne = () => {
+import { StepContext } from "../StepContext";
+const StepOne = ({ modelValue }) => {
   const [loading, setLoadinng] = useState(false);
-  const { selectedModal, setActiveStep } = useContext(StepContext);
+  
+  const { setActiveStep, setFormDataStepTwo } = useContext(StepContext);
+  console.log("selected model in first step is", modelValue);
 
-  console.log("selected modal in first step is", selectedModal);
 
   const [formData, setFormData] = useState({
-    carRegistration: '',
-    make: '',
-    model: '',
-    range: '',
-    motExpiryDate: '',
-    firstRegistrationDate: '',
-    estimatedMileage: ''
+    carRegistration: "",
+    make: "",
+    model: modelValue || "",
+    range: "",
+    motExpiryDate: "",
+    firstRegistrationDate: "",
+    estimatedMileage: "",
   });
+
+  useEffect(() => {
+    console.log("selected model in first step is", modelValue);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      model: modelValue,
+    }));
+  }, [modelValue]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +43,27 @@ const StepOne = () => {
     try {
       setLoadinng(true);
       await addVehicleDetails(formData);
-      toast.success('Form submitted successfully!');
+      toast.success("Form submitted successfully!");
+      setFormDataStepTwo(formData); // Pass formData to StepTwo
       setActiveStep(2);
       // window.location.reload();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Failed to submit the form.');
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit the form.");
     } finally {
       setLoadinng(false);
     }
   };
+
+  const handleFindCar = () => {
+    const form = document.getElementById('show_form');
+    if(formData.carRegistration === ""){
+      toast.error("Please eneter car registration number");
+    }
+    else {
+      form.style.display = 'block';
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -88,7 +108,7 @@ const StepOne = () => {
               />
             </div>
             <div className="col-lg-2 Find_car  d-flex justify-content-end align-items-center">
-              <button type="button">Find Car &gt;</button>
+              <button type="button" onClick={handleFindCar}>Find Car &gt;</button>
             </div>
             <div className="col-lg-3 ms-3 d-flex justify-content-start flex-column ">
               <h6>Already Have an Account?</h6>
@@ -102,6 +122,7 @@ const StepOne = () => {
               </h5>
             </a>
           </div>
+          <div className="show" id="show_form" style={{display:"none"}} >
           <div className="row">
             <div className="col-lg-12 many_select">
               <div className="set_width">
@@ -136,12 +157,13 @@ const StepOne = () => {
                   </label>
                   <input
                     type="text"
-                    className='w-100'
+                    className="w-100"
                     id="model"
                     name="model"
                     value={formData.model}
                     onChange={handleChange}
                     required
+                    disabled
                   />
                 </div>
                 <div className="mb-3">
@@ -208,8 +230,12 @@ const StepOne = () => {
             </div>
           </div>
           <div className="text-end mt-5 next_step_info">
-            <button type="submit" disabled= {loading}>{loading ? "Submitting..." : "Next Step - My Info"}</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Next Step - My Info"}
+            </button>
           </div>
+          </div>
+         
           <div className="row">
             <div className="col-lg-12 mt-5 motor_section_end">
               <div className="image_on_text">

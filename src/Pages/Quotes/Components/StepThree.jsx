@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { StepContext } from "../StepContext";
 
 const StepThree = () => {
+  const { setActiveStep, formDataStepTwo } = useContext(StepContext);
+
   useEffect(() => {
     document.querySelectorAll(".plan-btn").forEach((btn) => {
       btn.addEventListener("click", function () {
@@ -19,7 +22,7 @@ const StepThree = () => {
           <div className="row h-100">
             <div className="col-lg-8 text-light d-flex align-items-start justify-content-start flex-column">
               <h1>
-                Choose the best warranty cover for your Alpina -
+                Choose the best warranty cover for your Alpina - 
                 <span> including your 11% saving</span>
               </h1>
               <p>
@@ -309,7 +312,7 @@ const StepThree = () => {
                   id="MotorEasy"
                   name="fav_language"
                   defaultValue={1}
-                  onclick="showContent('content1-bottom-section')"
+                  onClick="showContent('content1-bottom-section')"
                 />
                 <label htmlFor="MotorEasy">MotorEasy Network</label>
                 <br />
@@ -318,7 +321,7 @@ const StepThree = () => {
                   id="Find"
                   name="fav_language"
                   defaultValue={2}
-                  onclick="showContent('content2-bottom-section')"
+                  onClick="showContent('content2-bottom-section')"
                 />
                 <label htmlFor="Find">Find My Own Garage</label>
                 <br />
@@ -502,7 +505,7 @@ const StepThree = () => {
                   id="MotorEasy"
                   name="fav_language"
                   defaultValue={1}
-                  onclick="showContent('content1-bottom-section')"
+                  onClick="showContent('content1-bottom-section')"
                 />
                 <label htmlFor="MotorEasy">MotorEasy Network</label>
                 <br />
@@ -511,7 +514,7 @@ const StepThree = () => {
                   id="Find"
                   name="fav_language"
                   defaultValue={2}
-                  onclick="showContent('content2-bottom-section')"
+                  onClick="showContent('content2-bottom-section')"
                 />
                 <label htmlFor="Find">Find My Own Garage</label>
                 <br />

@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 import { StepProvider, StepContext } from "./StepContext"; // import the StepProvider and StepContext
 import MainHeader from "../../Components/MainHeader";
-import QuoteBanner from "./Components/QuoteBanner";
 import TopHeader from "../../Components/TopHeader";
 import "./Quote.css";
-import CardCarousel from "./Components/CardCarousel";
 import StepOne from "./Components/StepOne";
 import StepTwo from "./Components/StepTwo";
 import StepThree from "./Components/StepThree";
@@ -14,12 +12,12 @@ import { addModelDetails } from "../../firebase"; // import the function to add 
 
 const Quotes = () => {
   const [model, setModel] = useState("");
-  const { activeStep, setActiveStep, setSelectedModel } = useContext(StepContext);
+  const { activeStep, setActiveStep } = useContext(StepContext);
 
   const handleModelChange = (e) => {
     setModel(e.target.value);
   };
-  
+
   const [loading, setLoading] = useState(null);
 
   const handleGoClick = async () => {
@@ -27,9 +25,10 @@ const Quotes = () => {
       if (model) {
         setLoading(true);
         const modelId = await addModelDetails(model);
-        setSelectedModel(model);
         console.log("the value of model is : ", model);
-        setActiveStep(1);
+        setTimeout(() => {
+          setActiveStep(1);
+        }, 1000)
       } else {
         alert("Please select a model");
       }
@@ -102,7 +101,7 @@ const Quotes = () => {
               <div className="col-lg-12">
                 <StepNavigator />
                 <br />
-                <ContentSections />
+                <ContentSections modal={model} />
               </div>
             </div>
           </div>
@@ -141,7 +140,7 @@ const StepNavigator = () => {
   );
 };
 
-const ContentSections = () => {
+const ContentSections = ({modal}) => {
   const { activeStep } = useContext(StepContext);
 
   return (
@@ -150,7 +149,7 @@ const ContentSections = () => {
         id="content1"
         className={`content-section ${activeStep === 1 ? "active" : ""}`}
       >
-        <StepOne />
+        <StepOne modelValue={modal} />
       </div>
       <div
         id="content2"
