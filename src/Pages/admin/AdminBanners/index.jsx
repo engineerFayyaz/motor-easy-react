@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+import { ref, listAll, getDownloadURL, uploadBytesResumable, deleteObject } from 'firebase/storage';
 import { storage, db } from '../../../firebase';
 import { Form, Button, ProgressBar, Container, Row, Col, Table } from 'react-bootstrap';
-import { collection, addDoc, getDocs, query, where, deleteDoc,doc } from 'firebase/firestore';
+import { collection, addDoc, deleteDoc, doc,query,where,getDocs} from 'firebase/firestore';
 import AdminHeader from '../../../Components/AdminHeader';
 import Footer from '../../../Components/Footer';
 
 const AdminBanners = () => {
+  const services = [
+    'Used Car warranty',
+    'Vehicle inspection',
+    'Vehicle Service',
+    'Road Side',
+    'Battery Replacement',
+    'Windscreen Repair',
+    'Home'
+  ];
+
   const [selectedService, setSelectedService] = useState('Used Car warranty');
   const [images, setImages] = useState([]);
   const [uploadProgress, setUploadProgress] = useState({});
@@ -22,10 +32,19 @@ const AdminBanners = () => {
     setLoading(true);
     setError('');
     try {
-      const q = query(collection(db, 'images'), where('service', '==', selectedService));
-      const querySnapshot = await getDocs(q);
-      const urls = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setImageList(urls);
+      const allImages = [];
+      for (const service of services) {
+        const folderRef = ref(storage, `${service}/`);
+        const result = await listAll(folderRef);
+        const urls = await Promise.all(
+          result.items.map(async (itemRef) => {
+            const url = await getDownloadURL(itemRef);
+            return { name: itemRef.name, url, service };
+          })
+        );
+        allImages.push(...urls);
+      }
+      setImageList(allImages);
     } catch (error) {
       console.error('Error fetching images:', error);
       setError('Failed to fetch images');
@@ -83,11 +102,15 @@ const AdminBanners = () => {
     });
   };
 
-  const handleDelete = async (id, name) => {
-    const storageRef = ref(storage, `${selectedService}/${name}`);
+  const handleDelete = async (name, service) => {
+    const storageRef = ref(storage, `${service}/${name}`);
     try {
       await deleteObject(storageRef);
-      await deleteDoc(doc(db, 'images', id));
+      const q = query(collection(db, 'images'), where('service', '==', service), where('name', '==', name));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(async (doc) => {
+        await deleteDoc(doc.ref);
+      });
       fetchImages(); // Refresh the image list
     } catch (error) {
       console.error('Error deleting image:', error);
@@ -102,9 +125,6 @@ const AdminBanners = () => {
     a.click();
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-
   return (
     <>
       <AdminHeader />
@@ -115,13 +135,10 @@ const AdminBanners = () => {
             <Form.Label column sm={2}>Select Service</Form.Label>
             <Col sm={10}>
               <Form.Control as="select" value={selectedService} onChange={handleServiceChange}>
-                <option value="Used Car warranty">Used Car warranty</option>
-                <option value="Vehicle inspection">Vehicle inspection</option>
-                <option value="Vehicle Service">Vehicle Service</option>
-                <option value="Road Side">Road Side</option>
-                <option value="Battery Replacement">Battery Replacement</option>
-                <option value="Windscreen Repair">Windscreen Repair</option>
-                <option value="Home">Home</option>
+                {/* <option value="All Services">All Services</option> */}
+                {services.map((service) => (
+                  <option key={service} value={service}>{service}</option>
+                ))}
               </Form.Control>
             </Col>
           </Form.Group>
@@ -145,32 +162,36 @@ const AdminBanners = () => {
           </div>
         )}
         <h2 className="my-4">Uploaded Images</h2>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Image</th>
-              <th>Service</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {imageList.map((image, index) => (
-              <tr key={image.id}>
-                <td>{index + 1}</td>
-                <td>
-                  <img src={image.url} alt={image.name} width="100" />
-                  <div>{image.name}</div>
-                </td>
-                <td>{image.service}</td>
-                <td>
-                  <Button variant="danger" onClick={() => handleDelete(image.id, image.name)}>Delete</Button>
-                  <Button variant="secondary" onClick={() => handleDownload(image.url, image.name)}>Download</Button>
-                </td>
+        {loading ? <p>Loading...</p> : null}
+        {error ? <p>{error}</p> : null}
+        {!loading && !error && (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Service</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {imageList.map((image, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <img src={image.url} alt={image.name} width="100" />
+                    <div>{image.name}</div>
+                  </td>
+                  <td>{image.service}</td>
+                  <td>
+                    <Button variant="danger" onClick={() => handleDelete(image.name, image.service)}>Delete</Button>
+                    <Button variant="secondary" onClick={() => handleDownload(image.url, image.name)}>Download</Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
       </Container>
       <Footer />
     </>
