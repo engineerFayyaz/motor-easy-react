@@ -80,6 +80,11 @@ const AdminHeader = () => {
                       Upload Banners
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin/Message-Request">
+                      Contact Request
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div className="log-sign navbar-nav">

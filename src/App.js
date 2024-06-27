@@ -28,6 +28,7 @@ import UsersData from './Pages/admin/UsersData';
 import { Dashboard } from './Pages/admin/Dashboard';
 import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
 import AdminBanners from './Pages/admin/AdminBanners';
+import ContactsTable from './Pages/admin/ContactsTable';
 
 
 
@@ -59,6 +60,7 @@ function App() {
         <Route path='/admin/ManageUsers' element={<UsersData />}/>
         <Route path='/admin/Appointments' element={<AppointmentsData />}/>
         <Route path='/admin/Upload-banners' element={<AdminBanners/>}/>
+        <Route path='/admin/Message-Request' element={<ContactsTable/>}/>
 
       </Routes>
     </Router>
