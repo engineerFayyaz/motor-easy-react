@@ -90,6 +90,11 @@ const AdminHeader = () => {
                       Add Pricings 
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/admin/Create-Coupans">
+                      Create Coupans
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div className="log-sign navbar-nav">

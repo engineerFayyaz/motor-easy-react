@@ -30,7 +30,7 @@ import AppointmentsData from './Pages/admin/BuyAppointements/Appointements';
 import AdminBanners from './Pages/admin/AdminBanners';
 import ContactsTable from './Pages/admin/ContactsTable';
 import AdminPricings from './Pages/admin/Pricings';
-
+import Coupans from './Pages/admin/Coupans';
 
 
 function App() {
@@ -63,6 +63,7 @@ function App() {
         <Route path='/admin/Upload-banners' element={<AdminBanners/>}/>
         <Route path='/admin/Message-Request' element={<ContactsTable/>}/>
         <Route path='/admin/Add-Pricings' element={<AdminPricings/>}/>
+        <Route path='/admin/Create-Coupans' element={<Coupans/>}/>
 
       </Routes>
     </Router>
