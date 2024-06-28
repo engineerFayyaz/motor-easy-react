@@ -6,11 +6,8 @@ import img from "../../../assets/images/side_image.png";
 import img2 from "../../../assets/images/uk.png";
 import { StepContext } from "../../../Context/StepContext";
 const StepOne = ({ modelValue }) => {
+  const { setActiveStep, updateFormData } = useContext(StepContext);
   const [loading, setLoadinng] = useState(false);
-  
-  const { setActiveStep, setFormDataStepTwo } = useContext(StepContext);
-  console.log("selected model in first step is", modelValue);
-
 
   const [formData, setFormData] = useState({
     carRegistration: "",
@@ -23,7 +20,6 @@ const StepOne = ({ modelValue }) => {
   });
 
   useEffect(() => {
-    console.log("selected model in first step is", modelValue);
     setFormData((prevFormData) => ({
       ...prevFormData,
       model: modelValue,
@@ -42,11 +38,8 @@ const StepOne = ({ modelValue }) => {
     e.preventDefault();
     try {
       setLoadinng(true);
-      await addVehicleDetails(formData);
-      toast.success("Form submitted successfully!");
-      setFormDataStepTwo(formData); // Pass formData to StepTwo
+      updateFormData('stepOneData', formData);
       setActiveStep(2);
-      // window.location.reload();
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to submit the form.");
@@ -57,10 +50,9 @@ const StepOne = ({ modelValue }) => {
 
   const handleFindCar = () => {
     const form = document.getElementById('show_form');
-    if(formData.carRegistration === ""){
-      toast.error("Please eneter car registration number");
-    }
-    else {
+    if (formData.carRegistration === "") {
+      toast.error("Please enter car registration number");
+    } else {
       form.style.display = 'block';
     }
   }

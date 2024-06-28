@@ -1,9 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
 import { StepContext } from "../../../Context/StepContext";
-import { addSelectedPlan } from "../../../firebase";
+import { addVehicleDetails } from "../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
+
 const StepThree = () => {
-  const { setActiveStep, formDataStepTwo } = useContext(StepContext);
+  const { setActiveStep, formDataStepTwo, updateFormData, formData } = useContext(StepContext);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     document.querySelectorAll(".plan-btn").forEach((btn) => {
@@ -18,19 +19,29 @@ const StepThree = () => {
   }, []);
 
   const handleContinue = async (planDetails) => {
-
     try {
       setLoading(true);
-      await addSelectedPlan(planDetails);
-      toast.success("Plan save successfully");
-    setActiveStep((prev) => prev + 1); 
+      updateFormData('stepTwoData', planDetails);
+
+      // Combine data to create nested objects in Firestore
+      const finalFormData = {
+        stepOneData: formData.stepOneData,
+        stepTwoData: formData.stepTwoData,
+        StepThreeData: planDetails,
+      };
+
+      await addVehicleDetails(finalFormData);
+      toast.success("Form submitted successfully!");
+      setActiveStep(4);
     } catch (error) {
-      console.error("failed to save plan", error);
-      toast.success("failed to save plan");
+      toast.error("Error while adding data");
+      console.error("Error while adding data", error);
     } finally {
       setLoading(false);
     }
   };
+
+ 
 
   return (
     <>

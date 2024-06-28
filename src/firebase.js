@@ -22,30 +22,15 @@ export {app, auth, storage, db}
 
 export const addVehicleDetails = async (data) => {
   try {
-    const docRef = await addDoc(collection(db, 'vehicleDetails'), data);
+    const docRef = await addDoc(collection(db, 'vehicleDetails'), data,  { merge: true });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
     console.error('Error adding document: ', e);
     throw new Error('Error adding document');
   }
 };
-export const addPersonalDetails = async (data) => {
-  try {
-    const docRef = await addDoc(collection(db, 'PersonalDetails'), data);
-    console.log('Document written with ID: ', docRef.id);
-  } catch (e) {
-    console.error('Error adding document: ', e);
-    throw new Error('Error adding document');
-  }
-};
-export const addSelectedPlan = async (plan) => {
-  try {
-    const docRef = await addDoc(collection(db, 'SelectedPlans'), plan);
-    console.log('Document written with ID: ', docRef.id);
-  } catch (e) {
-    console.error('Error adding document: ', e);
-  }
-};
+
+
 export const addModelDetails = async (model) => {
   try {
     const docRef = await addDoc(collection(db, 'selectedModel'), {

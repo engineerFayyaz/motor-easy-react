@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col, Card, Table } from "react-bootstrap";
 import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from "../../../firebase";
-import 'animate.css';
+// import 'animate.css';
 import Footer from "../../../Components/Footer";
 import AdminHeader from "../../../Components/AdminHeader";
 

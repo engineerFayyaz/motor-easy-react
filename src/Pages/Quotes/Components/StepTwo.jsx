@@ -5,10 +5,10 @@ import { StepContext } from "../../../Context/StepContext";
 import { addPersonalDetails, addVehicleDetails } from "../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 const StepTwo = () => {
-  const { setActiveStep, formDataStepTwo } = useContext(StepContext);
+  const { setActiveStep, formData, updateFormData } = useContext(StepContext);
   const [loading, setLoading] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [localFormData, setLocalFormData] = useState({
     title: '',
     fname: '',
     lastname: '',
@@ -16,30 +16,30 @@ const StepTwo = () => {
     email: '',
     ownership: '',
     buydate: '',
-  })
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setLocalFormData({
+      ...localFormData,
       [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {   
+    try {
       setLoading(true);
-      await addVehicleDetails(formData);
-      toast.success("Form added successfully");
+      updateFormData('stepTwoData', localFormData);
       setActiveStep(3);
-      console.log("Form added successfully");
     } catch (error) {
-      toast.error("Error while added data");
-      console.error("Error while added data", error);
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit the form.");
     } finally {
       setLoading(false);
     }
-  }
+  };
+
   return (
     <>
     <ToastContainer />
@@ -83,7 +83,7 @@ const StepTwo = () => {
           <select className="form-select form-select-lg"
           name="title" 
           id="title"
-          value={formData.title}
+          value={localFormData.title}
           onChange={handleChange}
           required
           >
@@ -102,7 +102,7 @@ const StepTwo = () => {
           </div>
           <input type="text"  name="fname" 
           id="fname"
-          value={formData.fname}
+          value={localFormData.fname}
           onChange={handleChange} required />
         </div>
         <div className="d-flex flex-column">
@@ -114,7 +114,7 @@ const StepTwo = () => {
           </div>
           <input type="text"  name="lastname" 
           id="lastname"
-          value={formData.lastname}
+          value={localFormData.lastname}
           onChange={handleChange} />
         </div>
         <div className="d-flex flex-column">
@@ -126,7 +126,7 @@ const StepTwo = () => {
           </div>
           <input type="tel"  name="phone" 
           id="phone"
-          value={formData.phone}
+          value={localFormData.phone}
           onChange={handleChange} />  
         </div>
         <div className="d-flex flex-column">
@@ -138,7 +138,7 @@ const StepTwo = () => {
           </div>
           <input type="email"  name="email" 
           id="email"
-          value={formData.email}
+          value={localFormData.email}
           onChange={handleChange} />
         </div>
         <hr />
@@ -152,7 +152,7 @@ const StepTwo = () => {
           </div>
           <select className="form-select form-select-lg"  name="ownership" 
           id="ownership"
-          value={formData.ownership}
+          value={localFormData.ownership}
           onChange={handleChange}>
             <option selected="">-Choose-</option>
             <option value="">Car Warranty</option>
@@ -167,7 +167,7 @@ const StepTwo = () => {
           </div>
           <input type="date"  name="buydate" 
           id="buydate"
-          value={formData.buydate}
+          value={localFormData.buydate}
           onChange={handleChange} />
         </div>
         <div className="two_step_button d-flex justify-content-between mt-5">
@@ -194,7 +194,7 @@ const StepTwo = () => {
         <label htmlFor="#">
           <img src={img2} alt="" />
         </label>
-        <input type="text" defaultValue={formDataStepTwo.carRegistration} disabled />
+        <input type="text" defaultValue={formData.carRegistration} disabled />
       </div>
       <div
         className="row d-flex flex-column pt-4"
@@ -208,7 +208,7 @@ const StepTwo = () => {
             MOT Due
           </h5>
           <h5>
-            {formDataStepTwo.motExpiryDate}
+            {formData.motExpiryDate}
           </h5>
         </div>
         <hr style={{ color: "black", border: "1px solid black" }} />
@@ -217,7 +217,7 @@ const StepTwo = () => {
             Service Due
           </h5>
           <h5>
-            {formDataStepTwo.firstRegistrationDate}
+            {formData.firstRegistrationDate}
           </h5>
         </div>
       </div>

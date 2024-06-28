@@ -1,16 +1,26 @@
+// StepContext.js
 import React, { createContext, useState } from 'react';
 
-const StepContext = createContext();
+export const StepContext = createContext();
 
-const StepProvider = ({ children }) => {
+export const StepProvider = ({ children }) => {
   const [activeStep, setActiveStep] = useState(0);
-  const [formDataStepTwo, setFormDataStepTwo] = useState({});
+  const [formData, setFormData] = useState({
+    stepOneData: {},
+    stepTwoData: {},
+    stepThreeData: {},
+  });
+
+  const updateFormData = (step, data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [step]: data,
+    }));
+  };
 
   return (
-    <StepContext.Provider value={{ activeStep, setActiveStep, formDataStepTwo, setFormDataStepTwo }}>
+    <StepContext.Provider value={{ activeStep, setActiveStep, formData, updateFormData }}>
       {children}
     </StepContext.Provider>
   );
 };
-
-export { StepProvider, StepContext };
