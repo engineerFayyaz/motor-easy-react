@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import img1 from "../../../assets/images/secssion_2.png";
 import img2 from "../../../assets/images/uk.png";
 import { StepContext } from "../../../Context/StepContext";
-import { addPersonalDetails } from "../../../firebase";
+import { addPersonalDetails, addVehicleDetails } from "../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 const StepTwo = () => {
   const { setActiveStep, formDataStepTwo } = useContext(StepContext);
@@ -29,7 +29,7 @@ const StepTwo = () => {
     e.preventDefault();
     try {   
       setLoading(true);
-      await addPersonalDetails(formData);
+      await addVehicleDetails(formData);
       toast.success("Form added successfully");
       setActiveStep(3);
       console.log("Form added successfully");

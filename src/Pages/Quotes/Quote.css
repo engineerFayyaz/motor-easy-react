@@ -995,13 +995,7 @@ button:disabled{
 }
 
 /* Header and Footer styling (placeholder) */
-.section-bottom header,
-footer {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 5px 0;
-    text-align: center;
-}
+
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
